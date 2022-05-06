@@ -33,11 +33,16 @@ SRCS =	\
         ft_putnbr_fd.c  \
         ft_itoa.c       \
         ft_strmapi.c    \
-	      ft_striteri.c   \
+	      ft_striteri.c
 
+BONUS = ft_lstnew.c \
+        ft_lstadd_front.c \
+        ft_lstsize.c  \
+        ft_lstlast.c \
+        ft_lstadd_back.c
 
-INDC =
 OBJS = ${SRCS:.c=.o}
+BONUS_OBJS = ${BONUS:.c=.o}
 
 NAME = libft.a
 
@@ -52,14 +57,18 @@ CFLAGS = -Wall -Wextra -Werror -I.
 ${NAME}:	${OBJS}
 		ar rcs ${NAME} ${OBJS}
 
+bonus: ${BONUS_OBJS}
+		ar rcs ${NAME} ${BONUS_OBJS}
 all:		${NAME}
 
 clean:
 		${RM} ${OBJS}
+		${RM} ${BONUS_OBJS}
 
 fclean:		clean
 		${RM} ${NAME}
 
 re:		fclean all
 
-.PHONY:		all clean fclean re
+
+.PHONY:		all clean fclean re bonus
