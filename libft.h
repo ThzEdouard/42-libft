@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 11:24:22 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 19:15:54 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/06 20:07:37 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
+
+ # define ABS(nbr) ((nbr > 0) ? (nbr) : (-nbr))
 
 typedef struct s_list
 {

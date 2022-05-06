@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 16:52:50 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 17:54:52 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/06 20:25:29 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,47 +31,24 @@ int ft_intlen(int nb)
 	}
 	return (result);
 }
-void	ft_rev_int_tab(char *tab, int size)
-{
-	int	i;
-	int	n;
-	int	tmp;
-
-	i = 0;
-	n = size - 1;
-	while (i < size / 2)
-	{
-		tmp = tab[i];
-		tab[i] = tab[n];
-		tab[n] = tmp;
-		i++;
-		n--;
-	}
-}
 char *ft_itoa(int n)
 {
 	char *result;
 	int count;
-	int neg;
+	int i;
 
 	count = ft_intlen(n);
-	neg = 0;
-	result = malloc(sizeof(char) * (ft_intlen(n) + 1));
-	if (result == NULL)
+	i = 0;
+	if(!(result = (char *)ft_calloc((count + 1) , sizeof(char))))
 		return (NULL);
-	result[count--] = 0;
-	if (n < 0)
+	if(n < 0)
+		result[i++] = '-';
+	if(n == 0)
+		result[0] = '0';
+	while (n)
 	{
-		neg = 1;
-		n *= -1;
+		result[--count] = ABS((n % 10)) + '0';
+		n = n / 10;
 	}
-	while (count >= 0)
-	{
-		result[count] = n % 10;
-		n /= 10;
-		count--;
-	}
-	if (neg)
-		result[0] = '-';
 	return (result);
 }
