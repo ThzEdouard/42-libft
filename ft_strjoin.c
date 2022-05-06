@@ -6,12 +6,33 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:09:32 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 11:48:13 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/06 18:22:12 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+char *ft_ptrinput(char * ptr, char *s1, char *s2)
+{
+	int i;
+	int j;
 
+	i = 0;
+	j = 0;
+
+	while(s1[i])
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	while(s2[j])
+	{
+		ptr[i] = s2[j];
+		j++;
+		i++;
+	}
+	ptr[i] = 0;
+	return (ptr);
+}
 char *ft_strjoin(char const *s1, char const *s2)
 {
 	int s1_len;
@@ -23,7 +44,6 @@ char *ft_strjoin(char const *s1, char const *s2)
 	ptr = (char*)malloc(sizeof(char) * (s1_len +s2_len + 1));
 	if(!ptr)
 		return(NULL);
-	ft_strlcpy(ptr, s1, s1_len + 1);
-	ft_strlcat(ptr,s2, s1_len + s2_len + 1);
+	ptr = ft_ptrinput(ptr, (char*)s1, (char *)s2);
 	return (ptr);
 }

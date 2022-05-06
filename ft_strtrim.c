@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:12:33 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 02:41:35 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/06 18:23:02 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ char *ft_strtrim(char const *s1, char const *set)
 			ptr[j++] = s1[i];
 		i++;
 	}
+	ptr[j] = 0;
 	return (ptr);
 }

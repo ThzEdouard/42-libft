@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 12:42:33 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 18:10:34 by eflaquet         ###   ########.fr       */
+/*   Created: 2022/05/06 19:15:32 by eflaquet          #+#    #+#             */
+/*   Updated: 2022/05/06 19:51:31 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void ft_striteri(char *s, void (*f)(unsigned int,char*))
 {
-	size_t i;
-	size_t j;
-	char * ptr;
+	unsigned int i;
 
-	j = 0;
+
 	if(!s)
-		return (NULL);
-	i = ft_strlen(s);
-	if(start > i)
-		start = i;
-	if(len > i - start)
-		len = i - start;
-	if(!(ptr = (char *)malloc((len + 1) * sizeof(char))))
-		return (NULL);
-	while(j < len && start + j <= i && s[start + j])
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		ptr[j] = s[start + j];
-		j++;
+		(*f)(i, (s + i));
+		i++;
 	}
-	ptr[j] = 0;
-	return(ptr);
+	s[i] = 0;
 }

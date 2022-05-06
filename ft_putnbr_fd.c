@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 12:16:50 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/05 12:35:11 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/06 19:10:13 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void ft_putnbr_fd(int n, int fd)
 	if(x < 0)
 	{
 		ft_putchar_fd('-', fd);
-		x -= x;
+		x = -x;
 	}
 	if(x < 10)
 		ft_putchar_fd(x + '0', fd);

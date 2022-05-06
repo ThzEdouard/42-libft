@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 16:52:50 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 12:12:28 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:54:52 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,23 @@ int ft_intlen(int nb)
 		nb /= 10;
 	}
 	return (result);
+}
+void	ft_rev_int_tab(char *tab, int size)
+{
+	int	i;
+	int	n;
+	int	tmp;
+
+	i = 0;
+	n = size - 1;
+	while (i < size / 2)
+	{
+		tmp = tab[i];
+		tab[i] = tab[n];
+		tab[n] = tmp;
+		i++;
+		n--;
+	}
 }
 char *ft_itoa(int n)
 {
