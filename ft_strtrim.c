@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 17:00:47 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/07 17:52:01 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/07 18:03:59 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	while (ft_strrchr(set, (int)s1[len]))
 		len--;
-	ptr = (char *)malloc(sizeof(char) * (len - i + 2));
+	ptr = ft_substr(s1, i, (len - i + 1));
 	if (!ptr)
 		return (NULL);
-	ptr = ft_substr(s1, i, (len - i + 1));
 	return (ptr);
 }
