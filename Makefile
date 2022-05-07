@@ -1,5 +1,5 @@
 SRCS =	\
-  ft_memset.c     \
+        ft_memset.c     \
         ft_memmove.c    \
         ft_memchr.c     \
         ft_memcmp.c     \
@@ -33,7 +33,7 @@ SRCS =	\
         ft_putnbr_fd.c  \
         ft_itoa.c       \
         ft_strmapi.c    \
-	      ft_striteri.c
+	ft_striteri.c
 
 BONUS = ft_lstnew.c \
         ft_lstadd_front.c \

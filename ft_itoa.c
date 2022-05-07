@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 16:52:50 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/07 14:48:34 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/07 16:03:13 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ int	ft_intlen(int nb)
 	return (result);
 }
 
+int	abs(int value)
+{
+	if (value < 0)
+		value = -value;
+	return (value);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*result;
@@ -49,7 +56,7 @@ char	*ft_itoa(int n)
 		result[0] = '0';
 	while (n)
 	{
-		result[--count] = ABS((n % 10)) + '0';
+		result[--count] = abs((n % 10)) + '0';
 		n = n / 10;
 	}
 	return (result);

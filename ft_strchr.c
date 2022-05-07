@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 21:16:27 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/07 15:13:16 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/07 15:37:14 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strchr(const char *s, int c)
 	{
 		if (*s == (char)c)
 			return ((char *)s);
-			s++;
+		s++;
 	}
 	return (NULL);
 }
