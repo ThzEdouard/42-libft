@@ -6,16 +6,16 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:56 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/05 21:51:33 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/07 15:12:22 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_count_word(char *s, char c)
+int	ft_count_word(char *s, char c)
 {
-	int count;
-	int i;
+	int	count;
+	int	i;
 
 	i = 0;
 	count = 0;
@@ -31,7 +31,7 @@ int ft_count_word(char *s, char c)
 	return (count);
 }
 
-void ft_input(char **tabs, char *str, char c, int i)
+void	ft_input(char **tabs, char *str, char c, int i)
 {
 	int	cs;
 	int	co;
@@ -42,7 +42,7 @@ void ft_input(char **tabs, char *str, char c, int i)
 	{
 		cs = i;
 		co = 0;
-		while (str[cs] && !(str[cs++] ==  c))
+		while (str[cs] && !(str[cs++] == c))
 			co++;
 		if (co)
 		{
@@ -58,13 +58,14 @@ void ft_input(char **tabs, char *str, char c, int i)
 	}
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **tab;
-	tab = malloc(sizeof(char *) * (ft_count_word((char*)s, c) + 1));
+	char	**tab;
+
+	tab = malloc(sizeof(char *) * (ft_count_word((char *)s, c) + 1));
 	if (!tab)
 		return (NULL);
-	ft_input(tab, (char*)s, c, 0);
-	tab[ft_count_word((char*)s, c)] = 0;
-	return(tab);
+	ft_input(tab, (char *)s, c, 0);
+	tab[ft_count_word((char *)s, c)] = 0;
+	return (tab);
 }

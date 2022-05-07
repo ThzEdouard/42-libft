@@ -6,20 +6,20 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 16:52:50 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 20:25:29 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/07 14:48:34 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_intlen(int nb)
+int	ft_intlen(int nb)
 {
-	int result;
+	int	result;
 
 	result = 0;
-	if(nb == 0)
+	if (nb == 0)
 		return (1);
-	if(nb < 0)
+	if (nb < 0)
 	{
 		result++;
 		nb *= -1;
@@ -31,19 +31,21 @@ int ft_intlen(int nb)
 	}
 	return (result);
 }
-char *ft_itoa(int n)
+
+char	*ft_itoa(int n)
 {
-	char *result;
-	int count;
-	int i;
+	char	*result;
+	int		count;
+	int		i;
 
 	count = ft_intlen(n);
 	i = 0;
-	if(!(result = (char *)ft_calloc((count + 1) , sizeof(char))))
+	result = (char *)ft_calloc((count + 1), sizeof(char));
+	if (!result)
 		return (NULL);
-	if(n < 0)
+	if (n < 0)
 		result[i++] = '-';
-	if(n == 0)
+	if (n == 0)
 		result[0] = '0';
 	while (n)
 	{

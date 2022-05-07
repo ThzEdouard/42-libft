@@ -6,18 +6,18 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 22:44:08 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 23:44:59 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/07 14:49:14 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list * lst_b;
+	t_list	*lst_b;
 
 	lst_b = *lst;
-	if(*lst == NULL)
+	if (*lst == NULL)
 	{
 		*lst = new;
 		return ;

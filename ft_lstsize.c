@@ -6,15 +6,15 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 21:48:29 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/06 22:33:27 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/05/07 14:54:06 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (lst)
@@ -22,5 +22,5 @@ int ft_lstsize(t_list *lst)
 		i++;
 		lst = lst->next;
 	}
-	return(i);
+	return (i);
 }
