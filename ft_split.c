@@ -5,67 +5,104 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 15:12:56 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/05/07 15:12:22 by eflaquet         ###   ########.fr       */
+/*   Created: 2022/10/12 11:16:17 by eflaquet          #+#    #+#             */
+/*   Updated: 2023/01/06 16:08:27 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_word(char *s, char c)
+char	**ft_free2(char **tab)
 {
-	int	count;
 	int	i;
 
 	i = 0;
-	count = 0;
-	while (s[i])
+	while (tab[i])
 	{
-		while (s[i] != '\0' && (s[i] == c))
-			i++;
-		if (s[i] != '\0')
-			count++;
-		while (s[i] != '\0' && !(s[i] == c))
-			i++;
+		free (tab[i]);
+		i++;
 	}
-	return (count);
+	free(tab);
+	return (NULL);
 }
 
-void	ft_input(char **tabs, char *str, char c, int i)
+int	ft_nbwords(char const *s, char c)
 {
-	int	cs;
-	int	co;
+	int	i;
+	int	words;
+
+	i = 0;
+	words = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			words++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else
+			i++;
+	}
+	return (words);
+}
+
+char	*ft_setword(char *testword, char const *s, int len, int i)
+{
 	int	y;
 
 	y = 0;
-	while (str[i])
+	while (len > 0)
 	{
-		cs = i;
-		co = 0;
-		while (str[cs] && !(str[cs++] == c))
-			co++;
-		if (co)
-		{
-			cs = 0;
-			tabs[y] = malloc(sizeof(char) * (co + 1));
-			while (str[i] && !(str[i] == c))
-				tabs[y][cs++] = str[i++];
-			tabs[y][cs] = '\0';
-			y++;
-		}
-		if (str[i])
-			i++;
+		testword[y] = s[i - len];
+		y++;
+		len--;
 	}
+	testword[y] = '\0';
+	return (testword);
+}
+
+char	**ft_words(char **test, int words, char const *s, char c)
+{
+	int	i;
+	int	word;
+	int	len;
+
+	i = 0;
+	word = 0;
+	len = 0;
+	while (word < words)
+	{
+		while (s[i] == c && s[i])
+			i++;
+		while (s[i] != c && s[i])
+		{
+			i++;
+			len++;
+		}
+		test[word] = malloc(sizeof(char) * (len + 1));
+		if (!test[word])
+			return (ft_free2 (test));
+		ft_setword (test[word], s, len, i);
+		word++;
+		len = 0;
+	}
+	test[word] = 0;
+	return (test);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**tab;
+	int		words;
+	char	**test;
 
-	tab = malloc(sizeof(char *) * (ft_count_word((char *)s, c) + 1));
-	if (!tab)
+	if (!s)
 		return (NULL);
-	ft_input(tab, (char *)s, c, 0);
-	tab[ft_count_word((char *)s, c)] = 0;
-	return (tab);
+	words = ft_nbwords (s, c);
+	test = malloc (sizeof(char *) * (words + 1));
+	if (!test)
+		return (0);
+	if (!ft_words (test, words, s, c))
+		return (NULL);
+	return (test);
 }
